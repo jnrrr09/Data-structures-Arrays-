@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="An interactive learning project explaining real-world uses of arrays through a pixel image editor.">
+<title>Arrays in the Real World | Pixel Array Lab</title>
+<style>
+:root{color-scheme:light dark;--bg:#f4f6f8;--card:#fff;--ink:#172433;--muted:#536273;--line:#d9e0e7;--accent:#be185d;--accent2:#2563eb;--code:#101923;--codefg:#e2f5df;--soft:#fce7f3}
+@media(prefers-color-scheme:dark){:root{--bg:#101820;--card:#17232e;--ink:#edf3f8;--muted:#aab8c5;--line:#30404d;--accent:#fb78ae;--accent2:#8bb7ff;--code:#080d12;--codefg:#d8f8d0;--soft:#3b1b2b}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:linear-gradient(120deg,#122438,#263f58);color:#fff;padding:20px max(20px,calc((100% - 1080px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:.02em}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:#eaf2fa;text-decoration:none;font-size:.92rem}nav a:hover{text-decoration:underline}
+main{max-width:1080px;margin:auto;padding:28px 20px 64px}.hero{padding:30px 0 22px}.eyebrow{color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}h1{font-size:clamp(2.1rem,6vw,3.7rem);line-height:1.08;letter-spacing:-.04em;margin:8px 0 16px}h2{font-size:1.55rem;line-height:1.25;margin:0 0 12px}h3{font-size:1.08rem;margin:0 0 8px}p{margin:0 0 12px}.lead{max-width:760px;color:var(--muted);font-size:1.1rem}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:.82rem;margin:4px 5px 0 0}
+section{margin-top:34px;scroll-margin-top:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 5px 20px #00000008}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.number{color:var(--accent);font-weight:850;font-size:.85rem}.muted{color:var(--muted)}.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}table{border-collapse:collapse;width:100%;min-width:640px}th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}th{background:var(--soft)}tr:last-child td{border-bottom:0}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--soft);padding:2px 5px;border-radius:4px}.lab{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:18px;align-items:start}canvas{width:100%;max-width:500px;aspect-ratio:1;border:2px solid var(--line);background:#fff;image-rendering:pixelated;touch-action:none;display:block;border-radius:8px;cursor:crosshair}.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}.swatches{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}.swatches button{width:31px;height:31px;border:2px solid var(--line);border-radius:50%;cursor:pointer}.swatches button[aria-pressed=true]{outline:3px solid var(--accent);outline-offset:2px}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.buttons button,.download{font:inherit;font-size:.9rem;padding:8px 11px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--ink);cursor:pointer}.buttons button:hover,.download:hover{border-color:var(--accent);color:var(--accent)}button:focus-visible,a:focus-visible{outline:3px solid var(--accent2);outline-offset:3px}pre{background:var(--code);color:var(--codefg);padding:14px;border-radius:9px;overflow:auto;font:13px/1.6 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre;min-height:110px}.status{font:13px ui-monospace,monospace;color:var(--muted);overflow-wrap:anywhere;margin-top:10px}.callout{border-left:4px solid var(--accent);padding:12px 16px;background:var(--soft);border-radius:0 8px 8px 0}.steps{padding-left:22px}.steps li{margin:7px 0}.footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media(max-width:760px){.grid2,.grid3,.lab{grid-template-columns:1fr}header{padding:16px 20px}main{padding:20px 14px 48px}.card{padding:16px}}
+</style>
+</head>
+<body>
+  <p>PS/ITC/24/0222</p>
+<header><div class="brand">DATA STRUCTURES · ARRAY PROJECT</div><nav aria-label="Main navigation"><a href="#report">Assignment</a><a href="#applications">Applications</a><a href="#lab">Interactive lab</a><a href="#conclusion">Conclusion</a></nav></header>
+<main>
+<div class="hero">
+<div class="eyebrow">Data Structures • Practical demonstration</div>
+<h1>Arrays in the Real World</h1>
+<p class="lead">Arrays help programs store related values in an ordered collection and retrieve each value by its position. This project introduces real-world uses of arrays and demonstrates a two-dimensional array through a small pixel-image editor.</p>
+<!-- <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">1D and 2D arrays</span> -->
+</div>
+
+<section id="report">
+<h2>1. Introduction to arrays</h2>
+<div class="card">
+<p>An <strong>array</strong> is a data structure that stores a collection of elements under one name. Each element is identified by an index. In many programming languages, including JavaScript and C++, indexing starts at <code>0</code>.</p>
+<p>For example, <code>marks = [75, 82, 68, 90, 77]</code> stores five marks. The value <code>marks[0]</code> is 75 and <code>marks[3]</code> is 90. A loop can visit every element to calculate totals, averages, minimums, or maximums.</p>
+<div class="callout"><strong>Why arrays?</strong> They group related values, allow direct access by index, and make repeated processing with loops simpler. Traditional fixed-size arrays are especially suitable when the number of elements is known in advance.</div>
+</div>
+</section>
+
+<section id="applications">
+<h2>2. Real-world applications of arrays</h2>
+<p class="muted">These examples show the type of data an array can hold and why indexed storage is useful. Real systems may also use databases or other data structures alongside arrays.</p>
+<div class="tablewrap"><table>
+<thead><tr><th>Application</th><th>What the array holds</th><th>Why an array is useful</th></tr></thead>
+<tbody>
+<tr><td><strong>Images and video</strong></td><td>Pixel colours arranged in rows and columns.</td><td>Image processing repeatedly reads and updates pixels by row and column, for example when flipping or blurring an image.</td></tr>
+<tr><td><strong>Audio processing</strong></td><td>A sequence of digital audio samples.</td><td>Samples are processed in order at a steady rate, so an indexed buffer is useful for playback and editing.</td></tr>
+<tr><td><strong>Spreadsheets</strong></td><td>Values arranged in rows and columns.</td><td>Cell positions and ranges help formulas refer to and process groups of values.</td></tr>
+<tr><td><strong>Games and maps</strong></td><td>Tiles, terrain, or board positions in a grid.</td><td>A program can look up a position and its neighbours to check movement or collisions.</td></tr>
+<tr><td><strong>Student result systems</strong></td><td>Marks for students in a class or for one subject.</td><td>A loop can calculate the class average and identify the highest and lowest marks without creating a separate variable for every student.</td></tr>
+<tr><td><strong>Scientific computing and machine learning</strong></td><td>Numerical vectors, matrices, and larger multi-dimensional collections.</td><td>Many calculations operate on groups of numerical values, often using optimized array operations.</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<h2>3. Chosen application: a pixel-image editor</h2>
+<div class="grid2">
+<div class="card"><h3>Objective</h3><p>Demonstrate how a digital image can be represented as a two-dimensional array and how simple image transformations operate on its elements.</p></div>
+<div class="card"><h3>How it uses an array</h3><p>The editor stores a 16 × 16 grid. Each position <code>grid[y][x]</code> contains a colour represented by three values: red, green, and blue (RGB).</p></div>
+</div>
+<p style="margin-top:14px">The array has 16 rows and 16 columns, giving 256 pixel positions. The program accesses a pixel with two indexes: the row <code>y</code> and column <code>x</code>. For example, <code>grid[2][5]</code> refers to the pixel in row 2, column 5.</p>
+</section>
+
+<section id="lab">
+<h2>4. Try the interactive pixel-array lab</h2>
+<p class="muted">Choose a colour and paint on the grid. Then try a transformation. Hover over or point to a pixel to inspect its array position.</p>
+<div class="lab">
+<div>
+<canvas id="cv" width="480" height="480" aria-label="16 by 16 pixel canvas; choose a colour and paint by clicking or dragging"></canvas>
+<div id="probe" class="status" aria-live="polite">Choose a colour, then click or drag across the grid.</div>
+<div class="buttons"><button id="reset">Reset example</button><button id="downloadData">Show array data</button></div>
+</div>
+<div class="panel">
+<strong>Colour palette</strong><div class="swatches" id="swatches" role="group" aria-label="Choose paint colour"></div>
+<strong>Array operations</strong>
+<div class="buttons" id="operations"></div>
+<p class="muted">The code panel shows the core loop for the selected operation.</p>
+<pre id="code" aria-live="polite">// Select an operation to inspect its algorithm.</pre>
+<div id="arrayOutput" class="status" aria-live="polite"></div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>5. How the array operations work</h2>
+<div class="grid2">
+<div class="card"><h3>Access by index</h3><p><code>grid[y][x]</code> selects one pixel using its row and column. Direct index access is generally constant time for an array.</p></div>
+<div class="card"><h3>Nested loops</h3><p>A loop inside another loop visits each row and each column. This is a natural way to process every pixel in a two-dimensional array.</p></div>
+<div class="card"><h3>Transformations</h3><p>Flipping and rotating rearrange pixel positions. Inverting changes each RGB channel using <code>255 - channel</code>.</p></div>
+<div class="card"><h3>Neighbour processing</h3><p>Blur examines nearby pixels and averages their RGB values. Boundary checks prevent the algorithm from reading outside the grid.</p></div>
+</div>
+<h3 style="margin-top:18px">Example: invert every pixel</h3>
+<pre>for (let y = 0; y &lt; height; y++) {
+  for (let x = 0; x &lt; width; x++) {
+    grid[y][x] = grid[y][x].map(channel =&gt; 255 - channel);
+  }
+}</pre>
+<p>This algorithm uses two loops to visit every pixel. Each pixel has three colour channels, and each channel is replaced by its opposite value. For example, a channel value of 0 becomes 255, while 255 becomes 0.</p>
+</section>
+
+<section>
+<h2>6. Benefits and limitations</h2>
+<div class="grid2">
+<div class="card"><h3>Benefits</h3><ul><li>Organizes similar data by position.</li><li>Allows direct access to a selected element.</li><li>Works naturally with loops and grid-based calculations.</li><li>Makes image transformations easy to demonstrate.</li></ul></div>
+<div class="card"><h3>Limitations</h3><ul><li>A traditional fixed-size array cannot grow automatically.</li><li>Inserting or removing elements in the middle may require shifting values.</li><li>Large images require substantial memory for pixel data.</li><li>Practical image software may use specialized image buffers and additional structures.</li></ul></div>
+</div>
+</section>
+
+<section id="conclusion">
+<h2>7. Conclusion</h2>
+<div class="card"><p>Arrays are useful when an application needs to store many related values and access them by position. They appear in image processing, audio, spreadsheets, games, student results, and scientific computing. The pixel-image editor demonstrates a two-dimensional array in practice: each pixel is stored at a row and column, and nested loops perform transformations across the grid.</p><p><strong>Project scope:</strong> This is an educational demonstration, not a full professional image editor. It uses a 16 × 16 grid and runs locally in a web browser.</p></div>
+</section>
+
+<div class="footer"><p><strong>Data Structures assignment project</strong></p></div>
+<p>PS/ITC/24/0222</p>
+</main>
+<script>
+'use strict';
+const W=16,H=16,S=480/W;
+const PAL=[[28,39,51],[194,24,91],[239,108,0],[250,200,40],[46,160,90],[30,120,210],[130,70,190],[255,255,255]];
+const blank=()=>Array.from({length:H},()=>Array.from({length:W},()=>[255,255,255]));
+let grid=blank(),cur=PAL[1],hover=null,drawing=false;
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const css=c=>`rgb(${c[0]},${c[1]},${c[2]})`;
+function draw(){
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){ctx.fillStyle=css(grid[y][x]);ctx.fillRect(x*S,y*S,S,S);}
+  ctx.strokeStyle='rgba(100,115,130,.35)';ctx.lineWidth=1;
+  for(let i=0;i<=W;i++){ctx.beginPath();ctx.moveTo(i*S+.5,0);ctx.lineTo(i*S+.5,480);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*S+.5);ctx.lineTo(480,i*S+.5);ctx.stroke();}
+  if(hover){ctx.strokeStyle='#be185d';ctx.lineWidth=3;ctx.strokeRect(hover[0]*S+1.5,hover[1]*S+1.5,S-3,S-3);}
+}
+function cell(e){const r=cv.getBoundingClientRect();const x=Math.floor((e.clientX-r.left)/r.width*W),y=Math.floor((e.clientY-r.top)/r.height*H);return x>=0&&y>=0&&x<W&&y<H?[x,y]:null;}
+function paint(e){const c=cell(e);if(c)grid[c[1]][c[0]]=[...cur];}
+function inspect(){
+ const p=document.getElementById('probe');
+ if(!hover){p.textContent='Choose a colour, then click or drag across the grid.';return;}
+ const [x,y]=hover;p.textContent=`grid[${y}][${x}] = [${grid[y][x].join(', ')}] · flat index = ${y} × ${W} + ${x} = ${y*W+x}`;
+}
+cv.addEventListener('pointerdown',e=>{drawing=true;cv.setPointerCapture(e.pointerId);paint(e);draw();inspect();});
+cv.addEventListener('pointerup',()=>drawing=false);
+cv.addEventListener('pointercancel',()=>drawing=false);
+cv.addEventListener('pointermove',e=>{hover=cell(e);if(drawing)paint(e);draw();inspect();});
+cv.addEventListener('pointerleave',()=>{if(!drawing){hover=null;draw();inspect();}});
+const OPS={
+ 'Flip left-right':[g=>g.map(r=>[...r].reverse()),`for (let y = 0; y < H; y++)\n  for (let x = 0; x < W; x++)\n    out[y][x] = grid[y][W - 1 - x];`],
+ 'Flip top-bottom':[g=>[...g].reverse().map(r=>r.map(c=>[...c])),`for (let y = 0; y < H; y++)\n  out[y] = grid[H - 1 - y].map(c => [...c]);`],
+ 'Rotate 90°':[g=>Array.from({length:H},(_,y)=>Array.from({length:W},(_,x)=>[...g[H-1-x][y]])),`for (let y = 0; y < H; y++)\n  for (let x = 0; x < W; x++)\n    out[y][x] = grid[H - 1 - x][y];`],
+ 'Invert':[g=>g.map(r=>r.map(c=>c.map(v=>255-v))),`for (let y = 0; y < H; y++)\n  for (let x = 0; x < W; x++)\n    out[y][x] = grid[y][x].map(v => 255 - v);`],
+ 'Blur':[g=>g.map((r,y)=>r.map((_,x)=>{const sum=[0,0,0];let n=0;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const yy=y+dy,xx=x+dx;if(yy>=0&&yy<H&&xx>=0&&xx<W){n++;for(let k=0;k<3;k++)sum[k]+=g[yy][xx][k];}}return sum.map(v=>Math.round(v/n));})),`for (let y = 0; y < H; y++)\n  for (let x = 0; x < W; x++) {\n    // Average valid pixels in the 3 × 3 neighbourhood\n    out[y][x] = averageNeighbours(grid, y, x);\n  }`],
+ 'Clear':[()=>blank(),`grid = Array.from({length: H},\n  () => Array.from({length: W},\n    () => [255, 255, 255]));`]
+};
+const ops=document.getElementById('operations'),code=document.getElementById('code');
+Object.entries(OPS).forEach(([name,[fn,source]])=>{const b=document.createElement('button');b.textContent=name;b.addEventListener('click',()=>{grid=fn(grid);code.textContent=source;document.getElementById('arrayOutput').textContent='';draw();inspect();});ops.appendChild(b);});
+const sw=document.getElementById('swatches');
+PAL.forEach((c,i)=>{const b=document.createElement('button');b.style.background=css(c);b.setAttribute('aria-label','Select colour '+(i+1));b.setAttribute('aria-pressed',String(i===1));b.title='Colour '+(i+1);b.addEventListener('click',()=>{cur=c;[...sw.children].forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');});sw.appendChild(b);});
+function seed(){grid=blank();const heart=[[3,4],[4,3],[5,3],[6,4],[7,5],[8,4],[9,3],[10,3],[11,4],[12,5],[12,6],[11,7],[10,8],[9,9],[8,10],[7,11],[6,10],[5,9],[4,8],[3,7],[3,6],[3,5],[7,4]];heart.forEach(([x,y])=>grid[y][x]=[...PAL[1]]);code.textContent='// Select an operation to inspect its algorithm.';document.getElementById('arrayOutput').textContent='';draw();inspect();}
+document.getElementById('reset').addEventListener('click',seed);
+document.getElementById('downloadData').addEventListener('click',()=>{const out=document.getElementById('arrayOutput');out.textContent=JSON.stringify(grid);});
+seed();
+</script>
+</body>
+</html>
